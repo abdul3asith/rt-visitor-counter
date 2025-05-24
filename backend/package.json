@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^5.1.0",
     "geoip-lite": "^1.4.10",
+    "redis": "^5.1.0",
     "ws": "^8.18.2"
   }
 }
