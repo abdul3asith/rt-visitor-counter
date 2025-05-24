@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Real-time Visitor Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>👀 Visitors Online: <span id="counter">0</span></h1>
+
+    <script>
+        const socket = new WebSocket('ws://' + window.location.host);
+
+        socket.onmessage = function (event) {
+            const data = JSON.parse(event.data);
+            document.getElementById('counter').textContent = data.onlineUsers;
+        };
+    </script>
+</body>
+
+</html>
